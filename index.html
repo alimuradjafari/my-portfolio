@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Personal Portfolio</title>
+    <style>
+        /* Internal CSS - Lab 2 Requirement: No external CSS files allowed */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 0.98rem;
+        }
+
+        /* Modern Light Header */
+        header {
+            background-color: #ffffff;
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+        }
+
+        .logo span {
+            color: #0284c7;
+        }
+
+        nav {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        nav a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #0284c7;
+            background-color: #f1f5f9;
+        }
+
+        nav a.active {
+            color: #0f172a;
+            background-color: rgba(39, 211, 245, 0.18);
+            font-weight: 600;
+            border: 1px solid rgba(39, 211, 245, 0.4);
+        }
+
+        /* Container Layout */
+        .container {
+            width: 88%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 0;
+            flex: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .hero-text {
+            flex: 1.2;
+        }
+
+        .badge-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(39, 211, 245, 0.12);
+            color: #0284c7;
+            padding: 0.35rem 0.9rem;
+            border-radius: 20px;
+            border: 1px solid rgba(39, 211, 245, 0.3);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+        }
+
+        .badge-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #27D3F5;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #27D3F5;
+        }
+
+        .hero-text h1 {
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .hero-text h1 span {
+            color: #0284c7;
+            position: relative;
+        }
+
+        .hero-text p {
+            color: #475569;
+            font-size: 1.05rem;
+            margin-bottom: 2rem;
+            max-width: 540px;
+            line-height: 1.65;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 0.9rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.65rem 1.3rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: #27D3F5;
+            color: #0f172a;
+            border: 1px solid #27D3F5;
+            box-shadow: 0 2px 4px rgba(39, 211, 245, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: #0284c7;
+            color: #ffffff;
+            border-color: #0284c7;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        .btn-outline {
+            background-color: rgba(39, 211, 245, 0.08);
+            color: #0284c7;
+            border: 1px solid #27D3F5;
+        }
+
+        .btn-outline:hover {
+            background-color: #27D3F5;
+            color: #0f172a;
+            box-shadow: 0 4px 12px rgba(39, 211, 245, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f8fafc;
+            border-color: #94a3b8;
+            color: #0f172a;
+        }
+
+        .hero-image {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            max-width: 340px;
+            border-radius: 50%;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            padding: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-4px);
+        }
+
+        /* Section Headings */
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.4rem;
+            color: #0f172a;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+        }
+
+        .section-header p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        /* Modern Light Cards */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 1.8rem;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #27D3F5;
+            box-shadow: 0 10px 20px -5px rgba(39, 211, 245, 0.15);
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(39, 211, 245, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0284c7;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+            color: #0f172a;
+        }
+
+        .card p {
+            color: #64748b;
+            font-size: 0.93rem;
+            line-height: 1.55;
+        }
+
+        /* Light Footer */
+        footer {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 1.5rem;
+            color: #64748b;
+            font-size: 0.88rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+
+        footer strong {
+            color: #0284c7;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 2.5rem;
+            }
+            .hero-text h1 {
+                font-size: 1.9rem;
+            }
+            .hero-text p {
+                margin: 0 auto 1.5rem auto;
+            }
+            .btn-group {
+                justify-content: center;
+            }
+            header {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">PORT<span>FOLIO</span></div>
+        <nav>
+            <a href="home.html" class="active">Home</a>
+            <a href="skills.html">Personal Skills</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="gallery.html">Image Gallery</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <div class="badge-pill">
+                    <span class="badge-dot"></span> Web Engineering Portfolio
+                </div>
+                <h1>Hi, I am Ali Murad <span>Jafari</span></h1>
+                <p>
+                    Welcome to my personal portfolio. I focus on developing clean, responsive, and user-centered web applications with semantic HTML5 and sleek styling.
+                </p>
+                <div class="btn-group">
+                    <a href="skills.html" class="btn btn-primary">View Skills</a>
+                    <a href="CV.pdf" download="Student_CV.pdf" class="btn btn-outline">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        Download CV
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="images/p2.jpeg" alt="Profile Graphic">
+            </div>
+        </section>
+
+        <!-- Highlights Section -->
+        <section>
+            <div class="section-header">
+                <h2>Key Focus Areas</h2>
+                <p>Core principles behind my development workflow and project design.</p>
+            </div>
+            <div class="features">
+                <div class="card">
+                    <div class="card-icon">&lt;/&gt;</div>
+                    <h3>Semantic HTML5</h3>
+                    <p>Writing well-structured, accessible, and standards-compliant HTML markup for high performance.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#9733;</div>
+                    <h3>Modern Layouts</h3>
+                    <p>Utilizing CSS Flexbox and Grid to construct fully responsive layouts across mobile and desktop displays.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">&#9881;</div>
+                    <h3>Clean UI &amp; UX</h3>
+                    <p>Emphasizing balanced typography, clean spacing, and intuitive component hierarchy.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Web Engineering Portfolio | Designed by <strong>alijafari</strong></p>
+    </footer>
+
+</body>
+</html>

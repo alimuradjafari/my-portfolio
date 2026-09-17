@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Skills | Portfolio</title>
+    <style>
+        /* Internal CSS - Lab 2 Requirement */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 0.98rem;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+        }
+
+        .logo span {
+            color: #0284c7;
+        }
+
+        nav {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        nav a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #0284c7;
+            background-color: #f1f5f9;
+        }
+
+        nav a.active {
+            color: #0f172a;
+            background-color: rgba(39, 211, 245, 0.18);
+            font-weight: 600;
+            border: 1px solid rgba(39, 211, 245, 0.4);
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3.5rem 0;
+            flex: 1;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            color: #0f172a;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.3px;
+        }
+
+        .page-header h1 span {
+            color: #0284c7;
+        }
+
+        .page-header p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        /* Section Title Header */
+        .section-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .section-title::before {
+            content: '';
+            display: inline-block;
+            width: 4px;
+            height: 1.2rem;
+            background-color: #27D3F5;
+            border-radius: 2px;
+        }
+
+        /* Modern Tech Skill Cards Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.4rem;
+            margin-bottom: 3.5rem;
+        }
+
+        .tech-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-4px);
+            border-color: #27D3F5;
+            box-shadow: 0 10px 20px -5px rgba(39, 211, 245, 0.18);
+        }
+
+        .tech-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .tech-icon {
+            width: 42px;
+            height: 42px;
+            background-color: rgba(39, 211, 245, 0.12);
+            color: #0284c7;
+            font-weight: 700;
+            font-size: 0.95rem;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(39, 211, 245, 0.3);
+        }
+
+        .tech-badge {
+            background-color: #f1f5f9;
+            color: #0f172a;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.25rem 0.65rem;
+            border-radius: 15px;
+            border: 1px solid #cbd5e1;
+        }
+
+        .tech-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.4rem;
+        }
+
+        .tech-card p {
+            color: #64748b;
+            font-size: 0.88rem;
+            line-height: 1.45;
+            margin-bottom: 1rem;
+        }
+
+        .skill-dots {
+            display: flex;
+            gap: 0.35rem;
+            align-items: center;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #e2e8f0;
+        }
+
+        .dot.active {
+            background-color: #27D3F5;
+            box-shadow: 0 0 6px rgba(39, 211, 245, 0.6);
+        }
+
+        /* Modern Languages Section */
+        .languages-section {
+            margin-bottom: 3.5rem;
+        }
+
+        .lang-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .lang-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: all 0.25s ease;
+        }
+
+        .lang-card:hover {
+            transform: translateY(-3px);
+            border-color: #27D3F5;
+            box-shadow: 0 8px 16px -4px rgba(39, 211, 245, 0.15);
+        }
+
+        .lang-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, rgba(39, 211, 245, 0.2), rgba(2, 132, 199, 0.2));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            border: 1px solid rgba(39, 211, 245, 0.4);
+        }
+
+        .lang-details h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.2rem;
+        }
+
+        .lang-details p {
+            color: #64748b;
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .lang-level {
+            display: inline-block;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #0284c7;
+            background-color: rgba(39, 211, 245, 0.12);
+            padding: 0.15rem 0.6rem;
+            border-radius: 10px;
+        }
+
+        /* Soft Skills Section */
+        .soft-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.4rem;
+        }
+
+        .soft-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.4rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            transition: all 0.25s ease;
+        }
+
+        .soft-card:hover {
+            transform: translateY(-3px);
+            border-color: #27D3F5;
+        }
+
+        .soft-icon {
+            font-size: 1.4rem;
+            margin-bottom: 0.6rem;
+            color: #0284c7;
+        }
+
+        .soft-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.3rem;
+        }
+
+        .soft-card p {
+            color: #64748b;
+            font-size: 0.88rem;
+            line-height: 1.45;
+        }
+
+        footer {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 1.5rem;
+            color: #64748b;
+            font-size: 0.88rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">PORT<span>FOLIO</span></div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="skills.html" class="active">Personal Skills</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="gallery.html">Image Gallery</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Personal <span>Skills &amp; Attributes</span></h1>
+            <p>A modern breakdown of technical stacks, spoken languages, and professional competencies.</p>
+        </div>
+
+        <!-- Technical & Programming Skills -->
+        <h2 class="section-title">Technical &amp; Programming Stack</h2>
+        <div class="tech-grid">
+            
+            <!-- Skill 1 -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">HTML</div>
+                    <span class="tech-badge">Advanced</span>
+                </div>
+                <h3>HTML5 &amp; Web Standards</h3>
+                <p>Semantic document architecture, accessibility compliance, and SEO best practices.</p>
+                <div class="skill-dots">
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                </div>
+            </div>
+
+            <!-- Skill 2 -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">CSS</div>
+                    <span class="tech-badge">Advanced</span>
+                </div>
+                <h3>CSS3 Layouts &amp; Styling</h3>
+                <p>Flexbox, CSS Grid, internal/inline styling, keyframe animations, and light themes.</p>
+                <div class="skill-dots">
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                </div>
+            </div>
+
+            <!-- Skill 3 -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">JS</div>
+                    <span class="tech-badge">Proficient</span>
+                </div>
+                <h3>JavaScript (ES6+)</h3>
+                <p>DOM manipulation, event handling, async requests, and interactive web component logic.</p>
+                <div class="skill-dots">
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+            <!-- Skill 4 -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">C++</div>
+                    <span class="tech-badge">Proficient</span>
+                </div>
+                <h3>C++ &amp; OOP Logic</h3>
+                <p>Data structures, object-oriented design patterns, pointers, and algorithmic logic.</p>
+                <div class="skill-dots">
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+            <!-- Skill 5 -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">PY</div>
+                    <span class="tech-badge">Intermediate</span>
+                </div>
+                <h3>Python Scripting</h3>
+                <p>Automation scripts, basic data manipulation, and backend utility scripting.</p>
+                <div class="skill-dots">
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+            <!-- Skill 6 -->
+            <div class="tech-card">
+                <div class="tech-header">
+                    <div class="tech-icon">GIT</div>
+                    <span class="tech-badge">Proficient</span>
+                </div>
+                <h3>Version Control &amp; Git</h3>
+                <p>Repository management, branching strategies, commit history, and GitHub workflows.</p>
+                <div class="skill-dots">
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Spoken Languages Section -->
+        <div class="languages-section">
+            <h2 class="section-title">Spoken Languages</h2>
+            <div class="lang-grid">
+                
+                <!-- Language 1 -->
+                <div class="lang-card">
+                    <div class="lang-avatar">&#128483;</div>
+                    <div class="lang-details">
+                        <h4>English Language</h4>
+                        <p>Academic &amp; Professional Communication</p>
+                        <span class="lang-level">C1 / Full Professional Fluency</span>
+                    </div>
+                </div>
+
+                <!-- Language 2 -->
+                <div class="lang-card">
+                    <div class="lang-avatar">&#128481;</div>
+                    <div class="lang-details">
+                        <h4>Urdu Language</h4>
+                        <p>Mother Tongue / Primary Communication</p>
+                        <span class="lang-level">Native Speaker</span>
+                    </div>
+                </div>
+
+                <!-- Language 3 -->
+                <div class="lang-card">
+                    <div class="lang-avatar">&#128214;</div>
+                    <div class="lang-details">
+                        <h4>Phashto Language</h4>
+                        <p>Reading &amp; Basic Comprehension</p>
+                        <span class="lang-level">Elementary / Reading</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Soft Skills & Competencies -->
+        <h2 class="section-title">Professional Attributes &amp; Soft Skills</h2>
+        <div class="soft-grid">
+            <div class="soft-card">
+                <div class="soft-icon">&#128161;</div>
+                <h4>Problem Solving</h4>
+                <p>Analyzing complex algorithmic bugs and constructing efficient technical solutions.</p>
+            </div>
+            <div class="soft-card">
+                <div class="soft-icon">&#129309;</div>
+                <h4>Team Collaboration</h4>
+                <p>Working effectively within multi-disciplinary student project groups and lab teams.</p>
+            </div>
+            <div class="soft-card">
+                <div class="soft-icon">&#9201;</div>
+                <h4>Time Management</h4>
+                <p>Prioritizing tasks and delivering lab requirements reliably ahead of deadlines.</p>
+            </div>
+            <div class="soft-card">
+                <div class="soft-icon">&#128187;</div>
+                <h4>Adaptability</h4>
+                <p>Rapidly adopting new web engineering frameworks, tools, and coding practices.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Web Engineering Portfolio | Designed by <strong>alijafari</strong></p>
+    </footer>
+
+</body>
+</html>

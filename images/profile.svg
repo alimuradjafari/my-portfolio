@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#27D3F5"/>
+      <stop offset="100%" stop-color="#0088cc"/>
+    </linearGradient>
+  </defs>
+  <rect width="500" height="500" rx="30" fill="url(#bgGrad)"/>
+  <circle cx="250" cy="250" r="210" fill="none" stroke="#27D3F5" stroke-width="4" stroke-dasharray="10 15" opacity="0.4"/>
+  <circle cx="250" cy="180" r="75" fill="url(#cyanGrad)"/>
+  <path d="M120,380 C120,300 180,280 250,280 C320,280 380,300 380,380 Z" fill="url(#cyanGrad)"/>
+  <circle cx="250" cy="250" r="220" fill="none" stroke="#27D3F5" stroke-width="2" opacity="0.6"/>
+  <text x="250" y="440" text-anchor="middle" fill="#27D3F5" font-family="Segoe UI, sans-serif" font-size="20" font-weight="bold" letter-spacing="3">PORTFOLIO PROFILE</text>
+</svg>

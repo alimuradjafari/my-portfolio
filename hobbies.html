@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hobbies | Personal Portfolio</title>
+    <style>
+        /* Internal CSS - Lab 2 Requirement */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 0.98rem;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+        }
+
+        .logo span {
+            color: #0284c7;
+        }
+
+        nav {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        nav a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #0284c7;
+            background-color: #f1f5f9;
+        }
+
+        nav a.active {
+            color: #0f172a;
+            background-color: rgba(39, 211, 245, 0.18);
+            font-weight: 600;
+            border: 1px solid rgba(39, 211, 245, 0.4);
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3.5rem 0;
+            flex: 1;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            color: #0f172a;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.3px;
+        }
+
+        .page-header h1 span {
+            color: #0284c7;
+        }
+
+        .page-header p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        /* Hobbies Grid */
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 2rem;
+        }
+
+        .hobby-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.25s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-4px);
+            border-color: #27D3F5;
+            box-shadow: 0 10px 20px -5px rgba(39, 211, 245, 0.15);
+        }
+
+        .hobby-img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+            background-color: #f1f5f9;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .hobby-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hobby-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+        }
+
+        .hobby-content p {
+            color: #64748b;
+            font-size: 0.93rem;
+            line-height: 1.55;
+            margin-bottom: 1.2rem;
+            flex: 1;
+        }
+
+        .tag {
+            align-self: flex-start;
+            background: rgba(39, 211, 245, 0.12);
+            color: #0284c7;
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            border: 1px solid rgba(39, 211, 245, 0.3);
+        }
+
+        footer {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 1.5rem;
+            color: #64748b;
+            font-size: 0.88rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">PORT<span>FOLIO</span></div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="skills.html">Personal Skills</a>
+            <a href="hobbies.html" class="active">Hobbies</a>
+            <a href="gallery.html">Image Gallery</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Hobbies &amp; <span>Personal Interests</span></h1>
+            <p>Activities that keep me motivated, creative, and engaged outside academic work.</p>
+        </div>
+
+        <div class="hobby-grid">
+            <!-- Hobby 1 -->
+            <div class="hobby-card">
+                <img class="hobby-img" src="images/coding.svg" alt="Web Development Hobby">
+                <div class="hobby-content">
+                    <h3>Open Source &amp; Web Coding</h3>
+                    <p>Building personal side projects, experimenting with frontend frameworks, and designing clean interface templates.</p>
+                    <span class="tag">#CreativeCoding</span>
+                </div>
+            </div>
+
+            <!-- Hobby 2 -->
+            <div class="hobby-card">
+                <img class="hobby-img" src="images/photography.svg" alt="Photography Hobby">
+                <div class="hobby-content">
+                    <h3>Digital Photography</h3>
+                    <p>Capturing city architectural photography, landscape frames, and tech aesthetic compositions.</p>
+                    <span class="tag">#Photography</span>
+                </div>
+            </div>
+
+            <!-- Hobby 3 -->
+            <div class="hobby-card">
+                <img class="hobby-img" src="images/gaming.svg" alt="Gaming Hobby">
+                <div class="hobby-content">
+                    <h3>Tech Exploration &amp; Gaming</h3>
+                    <p>Playing tactical strategy games, configuring PC hardware setups, and staying updated on modern gadgets.</p>
+                    <span class="tag">#TechAndGaming</span>
+                </div>
+            </div>
+
+            <!-- Hobby 4 -->
+            <div class="hobby-card">
+                <img class="hobby-img" src="images/design.svg" alt="UI Design Hobby">
+                <div class="hobby-content">
+                    <h3>UI / UX Component Design</h3>
+                    <p>Drafting clean wireframes, exploring color palette harmony, and crafting minimal UI elements.</p>
+                    <span class="tag">#UIDesign</span>
+                </div>
+            </div>
+
+            <!-- Hobby 5 -->
+            <div class="hobby-card">
+                <img class="hobby-img" src="images/workspace.svg" alt="Desk Setup Hobby">
+                <div class="hobby-content">
+                    <h3>Minimal Workstation Setup</h3>
+                    <p>Organizing ergonomic desk setups, cable management, and clean hardware environments.</p>
+                    <span class="tag">#SetupInspiration</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Web Engineering Portfolio | Designed by <strong>alijafari</strong></p>
+    </footer>
+
+</body>
+</html>

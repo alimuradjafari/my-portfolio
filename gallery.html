@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery | Portfolio</title>
+    <style>
+        /* Internal CSS - Lab 2 Requirement */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8fafc;
+            color: #334155;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-size: 0.98rem;
+        }
+
+        header {
+            background-color: #ffffff;
+            padding: 1rem 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #0f172a;
+        }
+
+        .logo span {
+            color: #0284c7;
+        }
+
+        nav {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        nav a {
+            color: #475569;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.92rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #0284c7;
+            background-color: #f1f5f9;
+        }
+
+        nav a.active {
+            color: #0f172a;
+            background-color: rgba(39, 211, 245, 0.18);
+            font-weight: 600;
+            border: 1px solid rgba(39, 211, 245, 0.4);
+        }
+
+        .container {
+            width: 88%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3.5rem 0;
+            flex: 1;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 2rem;
+            color: #0f172a;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.3px;
+        }
+
+        .page-header h1 span {
+            color: #0284c7;
+        }
+
+        .page-header p {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        /* Image Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.8rem;
+        }
+
+        .gallery-card {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.25s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-4px);
+            border-color: #27D3F5;
+            box-shadow: 0 10px 20px -5px rgba(39, 211, 245, 0.18);
+        }
+
+        .gallery-img-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            background-color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            padding: 1.2rem;
+            text-align: center;
+        }
+
+        .gallery-caption h3 {
+            color: #0f172a;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .gallery-caption p {
+            color: #64748b;
+            font-size: 0.88rem;
+        }
+
+        footer {
+            background-color: #ffffff;
+            text-align: center;
+            padding: 1.5rem;
+            color: #64748b;
+            font-size: 0.88rem;
+            border-top: 1px solid #e2e8f0;
+            margin-top: auto;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 0.8rem;
+                padding: 1rem 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="logo">PORT<span>FOLIO</span></div>
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="skills.html">Personal Skills</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="gallery.html" class="active">Image Gallery</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="page-header">
+            <h1>Image <span>Gallery</span></h1>
+            <p>Visual collection showcasing project graphics, work setups, and creative pursuits (6 Images).</p>
+        </div>
+
+        <div class="gallery-grid">
+            <!-- Image 1 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="images/p1.jpeg" alt="Personal Profile Identity">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Personal Profile Avatar</h3>
+                    <p>Digital developer profile graphic</p>
+                </div>
+            </div>
+
+            <!-- Image 2 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="images/p2.jpeg" alt="Workstation Environment">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Developer Workstation</h3>
+                    <p>Clean desktop setup configuration</p>
+                </div>
+            </div>
+
+            <!-- Image 3 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="images/p3.jpeg" alt="Web Engineering Code Editor">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Web Engineering Code</h3>
+                    <p>HTML5, CSS3, &amp; JS editor layout</p>
+                </div>
+            </div>
+
+            <!-- Image 4 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="images/p4.jpeg" alt="UI UX Design System">
+                </div>
+                <div class="gallery-caption">
+                    <h3>UI / UX Interface Design</h3>
+                    <p>Color swatches &amp; layout components</p>
+                </div>
+            </div>
+
+            <!-- Image 5 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="images/p5.jpeg" alt="Digital Camera & Media">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Digital Photography</h3>
+                    <p>Camera optics &amp; creative media</p>
+                </div>
+            </div>
+
+            <!-- Image 6 -->
+            <div class="gallery-card">
+                <div class="gallery-img-wrapper">
+                    <img src="images/gaming.svg" alt="Gaming & Tech Exploration">
+                </div>
+                <div class="gallery-caption">
+                    <h3>Tech &amp; Gaming</h3>
+                    <p>Hardware controllers &amp; tech hobbies</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Web Engineering Portfolio | Designed by <strong>alijafari</strong></p>
+    </footer>
+
+</body>
+</html>
